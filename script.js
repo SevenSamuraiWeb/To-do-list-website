@@ -48,5 +48,9 @@ function deleteTask(taskno){
     del.style.display="none";
 }
 
+function showPopup(){
+    var overlay=document.getElementById('popup_c');
+    overlay.style.display="block";
+}
 
 

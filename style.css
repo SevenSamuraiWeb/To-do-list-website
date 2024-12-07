@@ -2,7 +2,7 @@ body{
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 28%,rgba(0,212,255,1) 100%);
     color: white;
-    font-family:Inter
+    font-family:Inter;
 }
 
 .mybutton{
@@ -101,6 +101,12 @@ body{
     margin: 3px;
 }
 
+
+.popup-box{
+    position: relative;
+    z-index: -2;
+}
+
 .popup-container{
     display:none;
     background-color: rgb(172, 213, 250);
@@ -108,4 +114,6 @@ body{
     border-radius: 20px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: -1;
 }
