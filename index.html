@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>To do list</title>
+        <link rel="stylesheet" href="style.css">
+
+        <style>
+                @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        </style>
+</head>
+
+<body>
+        <div class="container">
+                <div class="title">
+                        <h1>To do list</h1>
+                        <img src="toDoLogo.svg" alt="to do list logo" height="80px">
+                </div>
+                <div class="input">
+                        <textarea name="inputbox" id="inputbox" placeholder="Enter your task"></textarea>
+                        <button class="mybutton" id="btn" onclick="return newTask()">+</button>
+                </div>
+                <div class="popup-container">
+                        <div class="popup-box">
+                                <h2>Add task</h2>
+                                <label for="tname">Task name</label>
+                                <input type="text" name="tname" id="tname">
+
+                                <label for="tname">Task deadline</label>
+                                <input type="date" name="tdate" id="tdate">
+
+                                <label for="tname">Task priority</label>
+                                <select name="tpriority" id="tpriority">
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
+                                </select>
+                                <button></button>
+                        </div>
+                </div>
+                <div id="tasks">
+
+                </div>
+        </div>
+        <script src="script.js"></script>
+</body>
+
+</html>

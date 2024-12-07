@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Popup</title>
+    <style>
+        /* Style for the popup background overlay */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        /* Style for the popup box */
+        .popup-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .popup-box h2 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+
+        .popup-box label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .popup-box input, .popup-box select, .popup-box button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .popup-box button {
+            cursor: pointer;
+            background: #007BFF;
+            color: white;
+            border: none;
+        }
+
+        .popup-box button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="openPopup()">Add Task</button>
+
+    <!-- Popup structure -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-box">
+            <h2>Add Task</h2>
+            <label for="taskName">Task Name</label>
+            <input type="text" id="taskName" placeholder="Enter task name" required>
+            
+            <label for="taskDeadline">Deadline</label>
+            <input type="date" id="taskDeadline" required>
+            
+            <label for="taskUrgency">Urgency</label>
+            <select id="taskUrgency" required>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            
+            <button onclick="addTask()">Add Task</button>
+            <button onclick="closePopup()">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the popup
+        function openPopup() {
+            document.getElementById('popupOverlay').style.display = 'block';
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+
+        // Function to handle adding a task
+        function addTask() {
+            const taskName = document.getElementById('taskName').value;
+            const taskDeadline = document.getElementById('taskDeadline').value;
+            const taskUrgency = document.getElementById('taskUrgency').value;
+
+            if (!taskName || !taskDeadline || !taskUrgency) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            // Handle the task submission logic
+            console.log('Task Added:', {
+                name: taskName,
+                deadline: taskDeadline,
+                urgency: taskUrgency
+            });
+
+            // Close the popup
+            closePopup();
+
+            // Optionally, clear the input fields
+            document.getElementById('taskName').value = '';
+            document.getElementById('taskDeadline').value = '';
+            document.getElementById('taskUrgency').value = '';
+        }
+    </script>
+</body>
+</html>
