@@ -13,7 +13,7 @@ function newTask(){
     newDiv.innerHTML=
     `
         <div class="task" id="task${count++}">
-            <input type="checkbox"></input>
+            <input onchange="strikeTask(${current},this)" type="checkbox"></input>
             <div style="display:inline;margin:10px;color:black;">${task}</div>
             <div class="buttons">
                 <button class="editbtn" onclick="editTask(${current},this)">
@@ -27,6 +27,16 @@ function newTask(){
     `;
     container.appendChild(newDiv);
     return truel
+}
+
+function strikeTask(taskno,thischeckbox){
+    let taskid="task"+taskno;
+    let task=document.getElementById(taskid);
+    if(thischeckbox.checked){
+        task.style.textDecoration="line-through";
+    }else{
+        task.style.textDecoration="none";
+    }
 }
 
 function editTask(taskno,button){
