@@ -27,7 +27,7 @@ This project is a simple and efficient task management website designed to help 
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/SevenSamuraiWeb/To-do-list-website.git
    ```
 
 2. Set up your web server and database:
